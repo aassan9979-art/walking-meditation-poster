@@ -1,0 +1,337 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="2026년 9월 27일(일) 오전 10시, 서귀포시 회수동 WE호텔에서 열리는 자살예방 걷기명상 안내 포스터.">
+<meta property="og:title" content="생명을 살리는 걷기명상">
+<meta property="og:description" content="2026년 9월 27일(일) 오전 10시 — 11시 · 서귀포시 회수동 WE호텔 메가와티공원·편백숲 · 참가비 없음">
+<meta property="og:type" content="website">
+<title>생명을 살리는 걷기명상</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=IBM+Plex+Sans+KR:wght@300;400;500;600&display=swap">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<style>
+  :root{
+    --shell-bg:#D5DBD3;
+    --shell-fg:#31403C;
+    --shell-btn:#0F2529;
+    --shell-btn-fg:#EEF1EA;
+    --paper:#E7EBE3;
+    --paper-lift:#F2F4EE;
+    --ink:#0F2529;
+    --ink-soft:#4A625F;
+    --jade:#2D6E63;
+    --rule:#BAC4B9;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --shell-bg:#141A18;
+      --shell-fg:#A9B6B1;
+      --shell-btn:#DCE3DA;
+      --shell-btn-fg:#0F2529;
+    }
+  }
+  :root[data-theme="dark"]{
+    --shell-bg:#141A18;
+    --shell-fg:#A9B6B1;
+    --shell-btn:#DCE3DA;
+    --shell-btn-fg:#0F2529;
+  }
+
+  body{
+    margin:0;
+    background:var(--shell-bg);
+    color:var(--shell-fg);
+    font-family:'IBM Plex Sans KR','Malgun Gothic',sans-serif;
+    padding:20px 16px 40px;
+  }
+  .wrap{max-width:794px;margin:0 auto;}
+
+  .toolbar{
+    display:flex;flex-wrap:wrap;align-items:center;gap:10px;
+    padding-block:6px 16px;
+  }
+  .toolbar .hint{font-size:13px;line-height:1.5;opacity:.8;flex:1 1 200px;min-width:0;margin:0;}
+  .btn{
+    font:inherit;font-size:14px;font-weight:500;
+    background:var(--shell-btn);color:var(--shell-btn-fg);
+    border:0;border-radius:2px;padding:10px 18px;cursor:pointer;
+    letter-spacing:.02em;
+  }
+  .btn:disabled{opacity:.55;cursor:default;}
+  .btn:focus-visible{outline:2px solid var(--jade);outline-offset:2px;}
+  .btn[hidden]{display:none !important;}
+
+  .stage{width:100%;overflow:hidden;}
+  .stage .shot{
+    display:block;width:100%;height:auto;max-width:100%;
+    box-shadow:0 1px 3px rgba(15,37,41,.18),0 18px 40px rgba(15,37,41,.14);
+  }
+  .sheet{
+    width:794px;height:1123px;transform-origin:top left;
+    background:var(--paper);color:var(--ink);
+    display:flex;flex-direction:column;
+    box-shadow:0 1px 3px rgba(15,37,41,.18),0 18px 40px rgba(15,37,41,.14);
+  }
+
+  .topbar{height:8px;background:var(--ink);flex:0 0 auto;}
+
+  .head{padding:38px 62px 0;flex:0 0 auto;}
+  .eyebrow{
+    font-size:13px;font-weight:600;letter-spacing:.2em;color:var(--jade);margin:0;
+  }
+  .kicker{
+    font-size:25px;font-weight:300;color:var(--ink-soft);
+    margin:26px 0 0;letter-spacing:-.01em;
+  }
+  h1{
+    font-family:'Gowun Batang','Batang',serif;font-weight:700;
+    margin:6px 0 0;color:var(--ink);letter-spacing:-.02em;
+  }
+  h1 .l1{display:block;font-size:54px;line-height:1.18;}
+  h1 .l2{display:block;font-size:128px;line-height:1.02;}
+  .tick{width:64px;height:3px;background:var(--jade);margin-top:18px;}
+
+  .forest{flex:1 1 auto;min-height:128px;}
+  .forest svg{display:block;width:100%;height:100%;}
+
+  .lede{padding:0 62px;margin:26px 0 0;flex:0 0 auto;}
+  .lede p{margin:0;}
+  .lede .big{
+    font-family:'Gowun Batang','Batang',serif;
+    font-size:22px;line-height:1.65;color:var(--ink);
+  }
+  .lede .small{
+    font-size:16px;line-height:1.6;color:var(--ink-soft);margin-top:10px;font-weight:300;
+  }
+
+  .walk{padding:0 62px;margin-top:30px;flex:0 0 auto;}
+  .walk ol{
+    list-style:none;margin:0;padding:0 0 0 20px;
+    display:flex;flex-direction:column;gap:6px;
+    border-left:1px solid var(--rule);
+  }
+  .walk li{
+    position:relative;font-size:16px;line-height:28px;color:var(--ink);font-weight:400;
+  }
+  .walk li::before{
+    content:"";position:absolute;left:-25px;top:10px;
+    width:9px;height:9px;border-radius:50%;
+    background:var(--paper);border:2px solid var(--jade);
+  }
+  .walk li b{font-weight:600;}
+  .walk li span{color:var(--ink-soft);font-weight:300;}
+  .walk .note{
+    margin:12px 0 0;font-size:14px;color:var(--ink-soft);font-weight:300;letter-spacing:-.01em;
+  }
+
+  .facts{padding:0 62px;margin-top:26px;flex:0 0 auto;}
+  .facts dl{margin:0;border-top:1px solid var(--ink);}
+  .facts .row{
+    display:grid;grid-template-columns:92px 1fr;align-items:baseline;gap:0 16px;
+    padding:11px 0;border-bottom:1px solid var(--rule);
+  }
+  .facts dt{
+    font-size:12px;font-weight:600;letter-spacing:.18em;color:var(--jade);
+  }
+  .facts dd{
+    margin:0;font-size:19px;line-height:1.4;color:var(--ink);
+    font-variant-numeric:tabular-nums;letter-spacing:-.01em;
+  }
+  .facts dd.key{font-size:22px;font-weight:600;}
+  .facts dd em{font-style:normal;color:var(--jade);font-weight:600;}
+  .facts dd small{font-size:15px;font-weight:300;color:var(--ink-soft);}
+
+  .foot{
+    margin-top:auto;flex:0 0 auto;
+    background:var(--ink);color:var(--paper-lift);
+    padding:16px 62px;
+    font-size:13px;line-height:1.75;font-weight:300;
+  }
+  .foot b{color:var(--jade);font-weight:600;letter-spacing:.1em;font-size:11px;margin-right:6px;}
+
+  @media (prefers-reduced-motion:reduce){*{transition:none !important;animation:none !important;}}
+
+  @page{size:A4 portrait;margin:0;}
+  @media print{
+    body{background:#fff;padding:0;}
+    .toolbar{display:none;}
+    .stage{overflow:visible;height:auto !important;}
+    .sheet{transform:none !important;box-shadow:none;}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="toolbar">
+    <button class="btn" id="png">이미지로 만들기</button>
+    <p class="hint" id="hint">이미지로 만든 뒤 저장하면 단체방·게시판에 그대로 올리실 수 있습니다. 인쇄는 Ctrl+P에서 A4, 여백 없음으로 두세요.</p>
+  </div>
+
+  <div class="stage" id="stage">
+    <div class="sheet" id="sheet">
+      <div class="topbar"></div>
+
+      <header class="head">
+        <p class="eyebrow">자살예방 · 생명존중 걷기명상</p>
+        <p class="kicker">명상 전문 지도사와 함께하는</p>
+        <h1><span class="l1">생명을 살리는</span><span class="l2">걷기 명상</span></h1>
+        <div class="tick"></div>
+      </header>
+
+      <div class="forest">
+        <svg viewBox="0 0 794 160" preserveAspectRatio="xMidYMax slice" role="img" aria-label="편백나무 줄기를 세로획으로 그린 숲">
+          <defs>
+            <linearGradient id="mist" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#E7EBE3" stop-opacity="0"></stop>
+              <stop offset="0.55" stop-color="#E7EBE3" stop-opacity="0.55"></stop>
+              <stop offset="1" stop-color="#E7EBE3" stop-opacity="1"></stop>
+            </linearGradient>
+          </defs>
+          <g stroke-linecap="square">
+            <line x1="14" y1="34" x2="14" y2="160" stroke="#0F2529" stroke-width="3" opacity=".85"></line>
+            <line x1="27" y1="58" x2="27" y2="160" stroke="#2D6E63" stroke-width="1.5" opacity=".45"></line>
+            <line x1="41" y1="18" x2="41" y2="160" stroke="#0F2529" stroke-width="5" opacity="1"></line>
+            <line x1="58" y1="48" x2="58" y2="160" stroke="#0F2529" stroke-width="2" opacity=".6"></line>
+            <line x1="68" y1="66" x2="68" y2="160" stroke="#2D6E63" stroke-width="1" opacity=".35"></line>
+            <line x1="84" y1="26" x2="84" y2="160" stroke="#0F2529" stroke-width="4" opacity=".9"></line>
+            <line x1="99" y1="52" x2="99" y2="160" stroke="#2D6E63" stroke-width="2.5" opacity=".55"></line>
+            <line x1="112" y1="40" x2="112" y2="160" stroke="#0F2529" stroke-width="1.5" opacity=".4"></line>
+            <line x1="126" y1="12" x2="126" y2="160" stroke="#0F2529" stroke-width="6" opacity="1"></line>
+            <line x1="147" y1="60" x2="147" y2="160" stroke="#0F2529" stroke-width="2" opacity=".5"></line>
+            <line x1="158" y1="32" x2="158" y2="160" stroke="#2D6E63" stroke-width="3.5" opacity=".8"></line>
+            <line x1="175" y1="70" x2="175" y2="160" stroke="#0F2529" stroke-width="1" opacity=".3"></line>
+            <line x1="186" y1="46" x2="186" y2="160" stroke="#0F2529" stroke-width="2.5" opacity=".6"></line>
+            <line x1="203" y1="22" x2="203" y2="160" stroke="#0F2529" stroke-width="4.5" opacity=".95"></line>
+            <line x1="221" y1="64" x2="221" y2="160" stroke="#2D6E63" stroke-width="1.5" opacity=".35"></line>
+            <line x1="232" y1="38" x2="232" y2="160" stroke="#0F2529" stroke-width="3" opacity=".7"></line>
+            <line x1="251" y1="56" x2="251" y2="160" stroke="#0F2529" stroke-width="2" opacity=".45"></line>
+            <line x1="265" y1="16" x2="265" y2="160" stroke="#0F2529" stroke-width="5" opacity="1"></line>
+            <line x1="286" y1="68" x2="286" y2="160" stroke="#2D6E63" stroke-width="1.5" opacity=".3"></line>
+            <line x1="297" y1="44" x2="297" y2="160" stroke="#0F2529" stroke-width="2.5" opacity=".55"></line>
+            <line x1="318" y1="74" x2="318" y2="132" stroke="#2D6E63" stroke-width="1.5" opacity=".3"></line>
+            <line x1="336" y1="80" x2="336" y2="130" stroke="#0F2529" stroke-width="1" opacity=".22"></line>
+            <line x1="357" y1="70" x2="357" y2="133" stroke="#2D6E63" stroke-width="2" opacity=".3"></line>
+            <line x1="378" y1="84" x2="378" y2="129" stroke="#0F2529" stroke-width="1" opacity=".2"></line>
+            <line x1="399" y1="76" x2="399" y2="131" stroke="#2D6E63" stroke-width="1.5" opacity=".26"></line>
+            <line x1="420" y1="82" x2="420" y2="130" stroke="#0F2529" stroke-width="1" opacity=".22"></line>
+            <line x1="441" y1="72" x2="441" y2="133" stroke="#2D6E63" stroke-width="2" opacity=".3"></line>
+            <line x1="462" y1="36" x2="462" y2="160" stroke="#0F2529" stroke-width="3" opacity=".75"></line>
+            <line x1="478" y1="62" x2="478" y2="160" stroke="#2D6E63" stroke-width="1.5" opacity=".4"></line>
+            <line x1="492" y1="14" x2="492" y2="160" stroke="#0F2529" stroke-width="5" opacity="1"></line>
+            <line x1="513" y1="54" x2="513" y2="160" stroke="#0F2529" stroke-width="2" opacity=".5"></line>
+            <line x1="527" y1="30" x2="527" y2="160" stroke="#2D6E63" stroke-width="3.5" opacity=".8"></line>
+            <line x1="546" y1="68" x2="546" y2="160" stroke="#0F2529" stroke-width="1" opacity=".32"></line>
+            <line x1="558" y1="46" x2="558" y2="160" stroke="#0F2529" stroke-width="2.5" opacity=".6"></line>
+            <line x1="577" y1="20" x2="577" y2="160" stroke="#0F2529" stroke-width="4.5" opacity=".95"></line>
+            <line x1="596" y1="64" x2="596" y2="160" stroke="#2D6E63" stroke-width="1.5" opacity=".35"></line>
+            <line x1="608" y1="40" x2="608" y2="160" stroke="#0F2529" stroke-width="3" opacity=".7"></line>
+            <line x1="628" y1="58" x2="628" y2="160" stroke="#0F2529" stroke-width="2" opacity=".45"></line>
+            <line x1="643" y1="10" x2="643" y2="160" stroke="#0F2529" stroke-width="5.5" opacity="1"></line>
+            <line x1="666" y1="72" x2="666" y2="160" stroke="#2D6E63" stroke-width="1.5" opacity=".3"></line>
+            <line x1="678" y1="44" x2="678" y2="160" stroke="#0F2529" stroke-width="2.5" opacity=".55"></line>
+            <line x1="697" y1="24" x2="697" y2="160" stroke="#0F2529" stroke-width="4" opacity=".9"></line>
+            <line x1="715" y1="60" x2="715" y2="160" stroke="#2D6E63" stroke-width="1.5" opacity=".38"></line>
+            <line x1="729" y1="34" x2="729" y2="160" stroke="#0F2529" stroke-width="3" opacity=".75"></line>
+            <line x1="748" y1="50" x2="748" y2="160" stroke="#0F2529" stroke-width="2" opacity=".5"></line>
+            <line x1="762" y1="16" x2="762" y2="160" stroke="#0F2529" stroke-width="5" opacity="1"></line>
+            <line x1="781" y1="42" x2="781" y2="160" stroke="#2D6E63" stroke-width="2.5" opacity=".6"></line>
+          </g>
+          <rect x="0" y="60" width="794" height="100" fill="url(#mist)"></rect>
+        </svg>
+      </div>
+
+      <div class="lede">
+        <p class="big">숲길을 천천히 걷는 한 시간,<br>나를 살리고 이웃을 살리는 시간입니다.</p>
+        <p class="small">명상이 처음이셔도 괜찮습니다. 그저 오셔서 걸으시면 됩니다.</p>
+      </div>
+
+      <section class="walk">
+        <ol>
+          <li><b>이완명상</b> <span>— 몸풀기 요가와 걷기명상 안내 · 메가와티공원</span></li>
+          <li><b>걷기명상</b> <span>— 메가와티공원에서 편백숲까지</span></li>
+          <li><b>산과 나무 명상</b> <span>— 편백숲</span></li>
+          <li><b>마무리</b> <span>— 기념촬영 · 기념품 · 간식 · 메가와티공원</span></li>
+        </ol>
+        <p class="note">접수 — WE호텔 입구 또는 메가와티공원 입구 · 전체 한 시간</p>
+      </section>
+
+      <section class="facts">
+        <dl>
+          <div class="row"><dt>일시</dt><dd class="key">2026년 9월 27일 (일) 오전 10시 — 11시</dd></div>
+          <div class="row"><dt>장소</dt><dd>서귀포시 회수동 WE호텔 <small>메가와티공원 · 편백숲</small></dd></div>
+          <div class="row"><dt>참가비</dt><dd><em>없음</em> <small>기념품과 사은품을 드립니다</small></dd></div>
+          <div class="row"><dt>문의 · 접수</dt><dd>고경봉 010-2699-3001</dd></div>
+        </dl>
+      </section>
+
+      <footer class="foot">
+        <div><b>주최</b>보건복지부 산하 생명존중희망재단 &nbsp;·&nbsp; <b>주관</b>대한불교조계종 불교상담개발원</div>
+        <div><b>후원</b>대한불교조계종 총무원</div>
+      </footer>
+    </div>
+  </div>
+</div>
+
+<script>
+(function(){
+  var stage = document.getElementById('stage');
+  var sheet = document.getElementById('sheet');
+  var W = 794, H = 1123;
+
+  function fit(){
+    var k = Math.min(1, stage.clientWidth / W);
+    sheet.style.transform = 'scale(' + k + ')';
+    stage.style.height = (H * k) + 'px';
+  }
+  fit();
+  if (window.ResizeObserver) { new ResizeObserver(fit).observe(stage); }
+  window.addEventListener('resize', fit);
+
+  var btn = document.getElementById('png');
+  var hint = document.getElementById('hint');
+
+  if (!window.html2canvas) { btn.hidden = true; return; }
+
+  btn.addEventListener('click', function(){
+    btn.disabled = true;
+    btn.textContent = '만드는 중…';
+
+    var prevT = sheet.style.transform, prevH = stage.style.height;
+    function restore(){ sheet.style.transform = prevT; stage.style.height = prevH; }
+
+    sheet.style.transform = 'none';
+    stage.style.height = H + 'px';
+
+    var ready = document.fonts ? document.fonts.ready : Promise.resolve();
+    ready.then(function(){
+      return html2canvas(sheet, {
+        scale: 2, backgroundColor: '#E7EBE3',
+        width: W, height: H, windowWidth: W,
+        logging: false, useCORS: true
+      });
+    }).then(function(canvas){
+      restore();
+      var img = document.createElement('img');
+      img.src = canvas.toDataURL('image/png');
+      img.width = W; img.height = H;
+      img.alt = '생명을 살리는 걷기명상 포스터';
+      img.className = 'shot';
+      stage.replaceChildren(img);
+      stage.style.height = 'auto';
+      stage.style.overflow = 'visible';
+      btn.hidden = true;
+      hint.textContent = '이미지를 오른쪽 클릭(휴대폰은 길게 누르기)해서 저장한 뒤 올리시면 됩니다.';
+    })['catch'](function(){
+      restore();
+      hint.textContent = '이미지를 만들지 못했습니다. 인쇄(Ctrl+P)에서 PDF로 저장하거나 화면을 캡처해 사용하세요.';
+      btn.disabled = false;
+      btn.textContent = '이미지로 만들기';
+    });
+  });
+})();
+</script>
+</body>
+</html>
