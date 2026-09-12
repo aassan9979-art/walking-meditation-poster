@@ -17,6 +17,8 @@ A4 세로 한 장이며, 핸드폰에서는 읽기 좋은 크기로 다시 흘�
 | `apply/index.html` | 참가 신청 페이지. 구글폼을 끼워 넣은 것이라 따로 손으로 고칩니다 (build.ps1 대상 아님) |
 | `tools/build.ps1` | `src/poster.html` → `index.html` |
 | `tools/make-og.ps1` | `og.png` 다시 그리기 |
+| `tools/worker.js` | 신청 내용을 받아 비공개 저장소에 기록하는 Cloudflare Worker |
+| `tools/SETUP-신청받기.md` | 위 Worker 설치 방법 (한 번만 하면 됩니다) |
 | `.nojekyll` | GitHub Pages 가 Jekyll 로 처리하지 않도록 (없으면 빌드 실패) |
 
 ## 고치고 올리는 순서
