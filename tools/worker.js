@@ -92,7 +92,7 @@ export default {
     }
 
     const now = kstNow();
-    const row = [now, attend, count, people, phone].map(csvCell).join(",") + "\r\n";
+    const row = [now, attend, count, people, dashPhone(phone)].map(csvCell).join(",") + "\r\n";
 
     // 같은 순간에 두 사람이 신청하면 충돌이 납니다. 다시 읽어서 몇 번 재시도합니다.
     for (let attempt = 0; attempt < 5; attempt++) {
@@ -139,6 +139,30 @@ function trim(value, max) {
 
 function csvCell(value) {
   return '"' + String(value).replace(/"/g, '""') + '"';
+}
+
+/**
+ * 연락처에 하이픈을 넣습니다.
+ * 숫자만 있으면 구글시트가 숫자로 바꿔 버려서 010 의 맨 앞 0 이 사라집니다.
+ * 하이픈이 하나라도 있으면 글자로 남습니다.
+ */
+function dashPhone(value) {
+  const raw = String(value).trim();
+  if (raw.indexOf("-") !== -1) return raw;
+
+  const d = raw.replace(/[^0-9]/g, "");
+  if (d !== raw.replace(/\s/g, "") || d.charAt(0) !== "0") return raw;
+
+  if (d.length === 11) return d.slice(0, 3) + "-" + d.slice(3, 7) + "-" + d.slice(7);
+  if (d.length === 10) {
+    return d.slice(0, 2) === "02"
+      ? d.slice(0, 2) + "-" + d.slice(2, 6) + "-" + d.slice(6)
+      : d.slice(0, 3) + "-" + d.slice(3, 6) + "-" + d.slice(6);
+  }
+  if (d.length === 9 && d.slice(0, 2) === "02") {
+    return d.slice(0, 2) + "-" + d.slice(2, 5) + "-" + d.slice(5);
+  }
+  return raw;
 }
 
 function kstNow() {
