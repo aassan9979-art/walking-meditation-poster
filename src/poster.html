@@ -162,6 +162,18 @@
   .route em{font-style:normal;color:var(--ink-soft);font-weight:300;}
   .route .note{margin:10px 0 0;font-size:13px;color:var(--ink-soft);font-weight:300;}
 
+  /* ---- 화면에서만 보이는 신청 버튼 ---- */
+  .apply{margin:0;text-align:center;}
+  .apply a{
+    display:inline-block;text-decoration:none;
+    background:var(--jade);color:#fff;
+    font-size:18px;font-weight:600;letter-spacing:.02em;
+    padding:16px 40px;border-radius:2px;
+    box-shadow:0 1px 3px rgba(28,71,51,.3);
+  }
+  .apply a:hover{background:var(--ink);color:#fff;}
+  .apply a:focus-visible{outline:2px solid var(--ink);outline-offset:3px;}
+
   @media (prefers-reduced-motion:reduce){*{transition:none !important;animation:none !important;}}
 
   /* On a phone the A4 sheet reflows at readable sizes instead of shrinking. */
@@ -215,6 +227,7 @@
   @media print{
     body{background:#fff;padding:0;}
     .wrap{gap:0;}
+    .apply{display:none;}
     .stage{overflow:visible;height:auto !important;}
     .sheet{
       width:794px;height:1123px;
@@ -381,6 +394,8 @@
       </footer>
     </div>
   </div>
+
+  <p class="apply"><a href="https://aassan9979-art.github.io/walking-meditation-poster/apply/">참가 신청하기</a></p>
 </div>
 
 <script>

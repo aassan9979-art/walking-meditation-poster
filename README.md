@@ -13,6 +13,8 @@ A4 세로 한 장이며, 핸드폰에서는 읽기 좋은 크기로 다시 흘�
 | `src/poster.html` | **고칠 파일.** 포스터 본체 (머리 껍데기 없음) |
 | `index.html` | 공개되는 파일. `src/poster.html` 에서 자동으로 만들어짐 — 직접 고치지 마세요 |
 | `og.png` | 링크 미리보기 카드 그림 (1200×630) |
+| `map.jpg` | 뒷면에 들어가는 WE호텔 숲 안내도 |
+| `apply/index.html` | 참가 신청 페이지. 구글폼을 끼워 넣은 것이라 따로 손으로 고칩니다 (build.ps1 대상 아님) |
 | `tools/build.ps1` | `src/poster.html` → `index.html` |
 | `tools/make-og.ps1` | `og.png` 다시 그리기 |
 | `.nojekyll` | GitHub Pages 가 Jekyll 로 처리하지 않도록 (없으면 빌드 실패) |
