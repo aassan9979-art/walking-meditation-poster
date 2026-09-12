@@ -1,14 +1,18 @@
 /**
  * 걷기명상 사전접수 — 신청 받는 Worker
  *
- * 신청 페이지에서 보낸 내용을 받아, 비공개 저장소의 CSV 파일에 한 줄씩 붙입니다.
+ * 두 가지 일을 합니다.
+ *   1) 신청 페이지가 보낸 내용을 받아, 비공개 저장소의 CSV 에 한 줄씩 붙입니다. (POST)
+ *   2) 구글시트가 명단을 읽어갈 수 있게 CSV 를 내어 줍니다. (GET, 열쇠 필요)
+ *
  * Cloudflare Workers 에 그대로 붙여 넣으면 됩니다. 설치 방법은 SETUP-신청받기.md 참고.
  *
  * 필요한 설정 (Cloudflare 대시보드에서 넣습니다)
- *   GITHUB_TOKEN  비밀 변수 — 비공개 저장소에 쓸 수 있는 GitHub 토큰
- *   GITHUB_REPO   일반 변수 — aassan9979-art/walking-meditation-applications
- *   FILE_PATH     일반 변수 — data/applications.csv
- *   ALLOW_ORIGIN  일반 변수 — https://aassan9979-art.github.io
+ *   GITHUB_TOKEN  비밀 — 비공개 저장소에 쓸 수 있는 GitHub 토큰
+ *   LIST_KEY      비밀 — 명단을 읽어갈 때 쓰는 열쇠. 직접 정하시면 됩니다
+ *   GITHUB_REPO   일반 — aassan9979-art/walking-meditation-applications
+ *   FILE_PATH     일반 — data/applications.csv
+ *   ALLOW_ORIGIN  일반 — https://aassan9979-art.github.io
  */
 
 export default {
@@ -19,16 +23,50 @@ export default {
       "Access-Control-Allow-Methods": "POST, OPTIONS",
       "Access-Control-Allow-Headers": "Content-Type",
       "Access-Control-Max-Age": "86400",
-      "Vary": "Origin",
+      Vary: "Origin",
+    };
+
+    const api =
+      "https://api.github.com/repos/" + env.GITHUB_REPO + "/contents/" + env.FILE_PATH;
+    const headers = {
+      Authorization: "Bearer " + env.GITHUB_TOKEN,
+      Accept: "application/vnd.github+json",
+      "X-GitHub-Api-Version": "2022-11-28",
+      "User-Agent": "walking-meditation-form",
     };
 
     if (request.method === "OPTIONS") {
       return new Response(null, { status: 204, headers: cors });
     }
+
+    // ---- 구글시트가 명단을 읽어가는 곳 ----
+    if (request.method === "GET") {
+      const key = new URL(request.url).searchParams.get("key");
+      // 열쇠가 없거나 틀리면, 이런 주소가 있다는 것조차 알리지 않습니다
+      if (!env.LIST_KEY || key !== env.LIST_KEY) {
+        return new Response("Not found", { status: 404 });
+      }
+      const res = await fetch(api, { headers });
+      if (!res.ok) {
+        return new Response("명단을 읽지 못했습니다", { status: 502 });
+      }
+      const meta = await res.json();
+      const text = fromBase64(String(meta.content).replace(/\s/g, ""));
+      // 맨 앞 BOM 은 떼고 보냅니다. 그대로 두면 첫 칸 글자가 깨져 보입니다.
+      return new Response(text.replace(/^﻿/, ""), {
+        status: 200,
+        headers: {
+          "Content-Type": "text/csv; charset=utf-8",
+          "Cache-Control": "no-store",
+        },
+      });
+    }
+
     if (request.method !== "POST") {
       return reply({ ok: false, error: "method" }, 405, cors);
     }
 
+    // ---- 신청 받기 ----
     let body;
     try {
       body = await request.json();
@@ -49,22 +87,12 @@ export default {
     if (!attend) {
       return reply({ ok: false, error: "missing_attend" }, 400, cors);
     }
-    // 참석하는 경우에만 연락처를 받습니다
     if (attend.startsWith("참석합니다") && !phone) {
       return reply({ ok: false, error: "missing_phone" }, 400, cors);
     }
 
     const now = kstNow();
     const row = [now, attend, count, people, phone].map(csvCell).join(",") + "\r\n";
-
-    const api =
-      "https://api.github.com/repos/" + env.GITHUB_REPO + "/contents/" + env.FILE_PATH;
-    const headers = {
-      Authorization: "Bearer " + env.GITHUB_TOKEN,
-      Accept: "application/vnd.github+json",
-      "X-GitHub-Api-Version": "2022-11-28",
-      "User-Agent": "walking-meditation-form",
-    };
 
     // 같은 순간에 두 사람이 신청하면 충돌이 납니다. 다시 읽어서 몇 번 재시도합니다.
     for (let attempt = 0; attempt < 5; attempt++) {
