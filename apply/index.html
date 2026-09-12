@@ -109,6 +109,9 @@
   textarea{min-height:104px;resize:vertical;line-height:1.6;}
   input[type="number"]{max-width:160px;}
 
+  .timegrid{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px;}
+  .timegrid .choice{margin-top:0;flex:1 1 150px;}
+
   .hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden;}
 
   .submit{
@@ -215,20 +218,32 @@
     </fieldset>
 
     <div id="only-if-attending" hidden>
+      <fieldset class="q">
+        <legend>2. 몇 시에 오시겠습니까?<span class="req">*</span></legend>
+        <p class="hint">매시 정각에 출발해 한 시간 걷습니다. 편한 시간을 골라 주세요.</p>
+        <div class="timegrid">
+          <label class="choice"><input type="radio" name="time" value="오전 9시"><span>오전 9시</span></label>
+          <label class="choice"><input type="radio" name="time" value="오전 10시"><span>오전 10시</span></label>
+          <label class="choice"><input type="radio" name="time" value="오전 11시"><span>오전 11시</span></label>
+          <label class="choice"><input type="radio" name="time" value="낮 12시"><span>낮 12시</span></label>
+          <label class="choice"><input type="radio" name="time" value="오후 1시"><span>오후 1시</span></label>
+        </div>
+      </fieldset>
+
       <div class="q">
-        <label class="label" for="count">2. 몇 명이 참석할 예정인가요?<span class="req">*</span></label>
+        <label class="label" for="count">3. 몇 명이 참석할 예정인가요?<span class="req">*</span></label>
         <p class="hint">본인을 포함한 인원입니다.</p>
         <input type="number" id="count" name="count" min="1" max="99" inputmode="numeric" placeholder="예: 4">
       </div>
 
       <div class="q">
-        <label class="label" for="people">3. 참석하시는 분 이름, 성별, 나이를 모두 적어주세요.</label>
+        <label class="label" for="people">4. 참석하시는 분 이름, 성별, 나이를 모두 적어주세요.</label>
         <p class="hint">예 — 홍길동, 남, 65세</p>
         <textarea id="people" name="people" rows="4" placeholder="한 분씩 줄을 바꿔 적어 주세요."></textarea>
       </div>
 
       <div class="q">
-        <label class="label" for="phone">4. 안내해드릴 핸드폰 연락처를 남겨주세요.<span class="req">*</span></label>
+        <label class="label" for="phone">5. 안내해드릴 핸드폰 연락처를 남겨주세요.<span class="req">*</span></label>
         <input type="tel" id="phone" name="phone" inputmode="tel" autocomplete="tel" placeholder="010-0000-0000">
       </div>
     </div>
@@ -284,7 +299,13 @@
       return;
     }
     var countField = document.getElementById("count");
+    var picked = form.querySelector('input[name="time"]:checked');
     if (yes.checked) {
+      if (!picked) {
+        fail("몇 시에 오실지 골라 주세요.");
+        form.querySelector('input[name="time"]').focus();
+        return;
+      }
       var n = parseInt(countField.value, 10);
       if (!(n >= 1)) {
         fail("몇 분이 오시는지 적어 주세요. 본인만 오시면 1을 적으시면 됩니다.");
@@ -298,8 +319,10 @@
       }
     }
 
+    // 고른 시각을 참석여부에 함께 담아 보냅니다. 이렇게 하면 받는 쪽을 고치지 않아도
+    // 명단에 몇 시 회차인지가 남습니다.
     var data = {
-      attend: yes.checked ? yes.value : no.value,
+      attend: yes.checked ? (yes.value + " · " + picked.value) : no.value,
       count: yes.checked ? document.getElementById("count").value : "",
       people: yes.checked ? document.getElementById("people").value : "",
       phone: yes.checked ? phone.value : "",
@@ -319,7 +342,7 @@
       })
       .then(function (result) {
         if (result && result.ok) {
-          done(yes.checked);
+          done(yes.checked, picked);
           return;
         }
         throw new Error("rejected");
@@ -331,7 +354,7 @@
       });
   });
 
-  function done(attending) {
+  function done(attending, picked) {
     var box = document.createElement("div");
     box.className = "done";
     var h = document.createElement("h3");
@@ -339,7 +362,7 @@
     if (attending) {
       h.textContent = "신청이 접수되었습니다.";
       p.textContent =
-        "9월 27일 일요일, 서귀포 회수동 WE호텔에서 뵙겠습니다. 오시고 싶은 시각 10분 전까지 호텔 입구 또는 메가와티공원 입구에서 접수해 주세요.";
+        "9월 27일 일요일 " + (picked ? picked.value : "") + ", 서귀포 회수동 WE호텔에서 뵙겠습니다. 출발 10분 전까지 호텔 입구 또는 메가와티공원 입구에서 접수해 주세요.";
     } else {
       h.textContent = "알려주셔서 고맙습니다.";
       p.textContent = "다음 걷기명상에서 뵙기를 바랍니다.";
