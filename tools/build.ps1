@@ -25,7 +25,7 @@ $doc = @"
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#F2F7EE">
+<meta name="theme-color" content="#F5F3E8">
 <meta name="description" content="$desc">
 <link rel="canonical" href="$base">
 <meta property="og:type" content="website">

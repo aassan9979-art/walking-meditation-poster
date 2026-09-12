@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#F2F7EE">
+<meta name="theme-color" content="#F5F3E8">
 <meta name="description" content="2026년 9월 27일(일) 오전 9시 · 10시 · 11시 · 낮 12시 · 오후 1시 출발 (한 시간) · 서귀포시 회수동 WE호텔 · 참가비 없음">
 <link rel="canonical" href="https://aassan9979-art.github.io/walking-meditation-poster/">
 <meta property="og:type" content="website">
@@ -27,25 +27,25 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Noto+Serif+KR:wght@700;900&family=IBM+Plex+Sans+KR:wght@300;400;500;600&display=swap">
 <style>
   :root{
-    --shell-bg:#DDE8D8;
-    --shell-fg:#3A5244;
-    --paper:#F2F7EE;
-    --paper-lift:#FAFCF8;
-    --ink:#1C4733;
-    --ink-soft:#4E6E58;
-    --jade:#2F7A4B;
-    --leaf:#57A86B;
-    --rule:#C9DAC7;
+    --shell-bg:#E5E1CE;
+    --shell-fg:#4C5244;
+    --paper:#F5F3E8;
+    --paper-lift:#FBFAF2;
+    --ink:#26402E;
+    --ink-soft:#5E6B52;
+    --jade:#8A6524;
+    --leaf:#C79A3E;
+    --rule:#DAD5C0;
   }
   @media (prefers-color-scheme: dark){
     :root:not([data-theme="light"]){
-      --shell-bg:#16211A;
-      --shell-fg:#A7BCAD;
+      --shell-bg:#1E1C14;
+      --shell-fg:#B6B39C;
     }
   }
   :root[data-theme="dark"]{
-    --shell-bg:#16211A;
-    --shell-fg:#A7BCAD;
+    --shell-bg:#1E1C14;
+    --shell-fg:#B6B39C;
   }
 
   body{
@@ -62,7 +62,7 @@
     width:794px;height:1123px;transform-origin:top left;
     background:var(--paper);color:var(--ink);
     display:flex;flex-direction:column;
-    box-shadow:0 1px 3px rgba(28,71,51,.14),0 18px 40px rgba(28,71,51,.12);
+    box-shadow:0 1px 3px rgba(38,64,46,.14),0 18px 40px rgba(38,64,46,.12);
   }
 
   .topbar{height:8px;background:var(--leaf);flex:0 0 auto;}
@@ -141,7 +141,7 @@
     padding:16px 62px;
     font-size:14px;line-height:1.7;font-weight:300;
   }
-  .foot b{color:var(--jade);font-weight:600;letter-spacing:.1em;font-size:11px;margin-right:6px;}
+  .foot b{color:var(--leaf);font-weight:600;letter-spacing:.1em;font-size:11px;margin-right:6px;}
 
   /* ---- 뒷면: 오시는 길 ---- */
   .title2{
@@ -162,7 +162,7 @@
     position:absolute;transform:translate(-50%,-50%);
     width:28px;height:28px;border-radius:50%;
     background:var(--jade);color:#fff;border:2px solid #fff;
-    box-shadow:0 1px 3px rgba(28,71,51,.45);
+    box-shadow:0 1px 3px rgba(38,64,46,.45);
     font-size:14px;font-weight:600;line-height:24px;text-align:center;
     font-variant-numeric:tabular-nums;
   }
@@ -191,7 +191,7 @@
     background:var(--jade);color:#fff;
     font-size:18px;font-weight:600;letter-spacing:.02em;
     padding:16px 40px;border-radius:2px;
-    box-shadow:0 1px 3px rgba(28,71,51,.3);
+    box-shadow:0 1px 3px rgba(38,64,46,.3);
   }
   .apply a:hover{background:var(--ink);color:#fff;}
   .apply a:focus-visible{outline:2px solid var(--ink);outline-offset:3px;}
@@ -274,45 +274,91 @@
       </header>
 
       <div class="forest">
-        <svg viewBox="0 0 794 140" preserveAspectRatio="xMidYMax slice" role="img" aria-label="숲길 위로 발자국이 멀어지며 작아지는 그림">
+        <svg viewBox="0 0 794 140" preserveAspectRatio="xMidYMax slice" role="img" aria-label="한가위 보름달이 뜬 가을 숲길, 억새 사이로 발자국이 멀어진다">
           <defs>
             <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0" stop-color="#EAF1E4"></stop>
-              <stop offset="1" stop-color="#F2F7EE"></stop>
+              <stop offset="0" stop-color="#EDE7D4"></stop>
+              <stop offset="1" stop-color="#F5F3E8"></stop>
             </linearGradient>
+            <radialGradient id="halo" cx="0.5" cy="0.5" r="0.5">
+              <stop offset="0.55" stop-color="#F8F2D8" stop-opacity="0.85"></stop>
+              <stop offset="1" stop-color="#F8F2D8" stop-opacity="0"></stop>
+            </radialGradient>
             <linearGradient id="trail" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0" stop-color="#F0F4E9"></stop>
-              <stop offset="0.45" stop-color="#E9EEDD"></stop>
-              <stop offset="1" stop-color="#DFE6D0"></stop>
+              <stop offset="0" stop-color="#F1ECDA"></stop>
+              <stop offset="0.45" stop-color="#EAE2CB"></stop>
+              <stop offset="1" stop-color="#DFD4B7"></stop>
             </linearGradient>
             <linearGradient id="ground" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0" stop-color="#F2F7EE" stop-opacity="0"></stop>
-              <stop offset="1" stop-color="#F2F7EE" stop-opacity="0.55"></stop>
+              <stop offset="0" stop-color="#F5F3E8" stop-opacity="0"></stop>
+              <stop offset="1" stop-color="#F5F3E8" stop-opacity="0.55"></stop>
             </linearGradient>
           </defs>
 
           <rect x="0" y="0" width="794" height="140" fill="url(#sky)"></rect>
+          <circle cx="598" cy="40" r="62" fill="url(#halo)"></circle>
+          <circle cx="598" cy="40" r="27" fill="#F9F4DB"></circle>
 
-          <path d="M0,58 C70,48 130,54 200,47 C270,40 330,52 410,44 C480,38 540,50 610,45 C680,40 740,50 794,45 L794,140 L0,140 Z" fill="#DCE7D9"></path>
-          <path d="M0,76 C80,68 140,74 220,68 C300,62 360,72 440,67 C510,63 570,73 650,68 C710,64 760,74 794,70 L794,140 L0,140 Z" fill="#C2D7C2"></path>
+          <path d="M0,58 C70,48 130,54 200,47 C270,40 330,52 410,44 C480,38 540,50 610,45 C680,40 740,50 794,45 L794,140 L0,140 Z" fill="#DFDAC0"></path>
+          <path d="M0,76 C80,68 140,74 220,68 C300,62 360,72 440,67 C510,63 570,73 650,68 C710,64 760,74 794,70 L794,140 L0,140 Z" fill="#C6C1A0"></path>
 
           <path d="M150,140 C245,118 365,78 412,54 L448,54 C482,80 600,120 700,140 Z" fill="url(#trail)"></path>
 
-          <g fill="#A6C3A9">
-            <ellipse cx="252" cy="120" rx="26" ry="9"></ellipse>
-            <ellipse cx="566" cy="118" rx="28" ry="9"></ellipse>
-            <ellipse cx="332" cy="99" rx="17" ry="6"></ellipse>
-            <ellipse cx="506" cy="97" rx="18" ry="6"></ellipse>
-            <ellipse cx="372" cy="81" rx="11" ry="4"></ellipse>
-            <ellipse cx="466" cy="79" rx="12" ry="4"></ellipse>
+          <g stroke="#AFA684" stroke-width="1" fill="none" opacity=".75" stroke-linecap="round">
+            <path d="M14,140 Q16.1,114 22.3,88"></path>
+            <path d="M30,140 Q31.6,120 36.4,100"></path>
+            <path d="M46,140 Q48.4,110 55.6,80"></path>
+            <path d="M62,140 Q63.4,123 67.4,106"></path>
+            <path d="M80,140 Q81.9,116 87.7,92"></path>
+            <path d="M98,140 Q99.5,121 104.1,102"></path>
+            <path d="M118,140 Q120.2,112 127,84"></path>
+            <path d="M140,140 Q141.2,125 144.8,110"></path>
+            <path d="M162,140 Q163.8,118 169,96"></path>
+            <path d="M186,140 Q187,127 190.2,114"></path>
+            <path d="M212,140 Q213.4,123 217.4,106"></path>
+            <path d="M240,140 Q240.9,129 243.5,118"></path>
+            <path d="M560,140 Q561,128 563.8,116"></path>
+            <path d="M588,140 Q589.3,124 593.1,108"></path>
+            <path d="M614,140 Q615,127 618.2,114"></path>
+            <path d="M640,140 Q641.7,119 646.7,98"></path>
+            <path d="M664,140 Q665.2,125 668.8,110"></path>
+            <path d="M690,140 Q692.1,114 698.3,88"></path>
+            <path d="M712,140 Q713.4,122 717.8,104"></path>
+            <path d="M736,140 Q738.3,111 745.3,82"></path>
+            <path d="M758,140 Q759.7,119 764.7,98"></path>
+            <path d="M776,140 Q778,115 784,90"></path>
+          </g>
+          <g fill="#DCD5B6" opacity=".9">
+            <ellipse cx="22.3" cy="83.3" rx="2.9" ry="8.3" transform="rotate(14 22.3 83.3)"></ellipse>
+            <ellipse cx="36.4" cy="96.4" rx="2.2" ry="6.4" transform="rotate(14 36.4 96.4)"></ellipse>
+            <ellipse cx="55.6" cy="74.6" rx="3.3" ry="9.6" transform="rotate(14 55.6 74.6)"></ellipse>
+            <ellipse cx="67.4" cy="102.9" rx="1.9" ry="5.4" transform="rotate(14 67.4 102.9)"></ellipse>
+            <ellipse cx="87.7" cy="87.7" rx="2.6" ry="7.7" transform="rotate(14 87.7 87.7)"></ellipse>
+            <ellipse cx="104.1" cy="98.6" rx="2.1" ry="6.1" transform="rotate(14 104.1 98.6)"></ellipse>
+            <ellipse cx="127" cy="79" rx="3.1" ry="9" transform="rotate(14 127 79)"></ellipse>
+            <ellipse cx="144.8" cy="107.3" rx="1.6" ry="4.8" transform="rotate(14 144.8 107.3)"></ellipse>
+            <ellipse cx="169" cy="92" rx="2.4" ry="7" transform="rotate(14 169 92)"></ellipse>
+            <ellipse cx="190.2" cy="111.7" rx="1.4" ry="4.2" transform="rotate(14 190.2 111.7)"></ellipse>
+            <ellipse cx="217.4" cy="102.9" rx="1.9" ry="5.4" transform="rotate(14 217.4 102.9)"></ellipse>
+            <ellipse cx="243.5" cy="116" rx="1.2" ry="3.5" transform="rotate(14 243.5 116)"></ellipse>
+            <ellipse cx="563.8" cy="113.8" rx="1.3" ry="3.8" transform="rotate(14 563.8 113.8)"></ellipse>
+            <ellipse cx="593.1" cy="105.1" rx="1.8" ry="5.1" transform="rotate(14 593.1 105.1)"></ellipse>
+            <ellipse cx="618.2" cy="111.7" rx="1.4" ry="4.2" transform="rotate(14 618.2 111.7)"></ellipse>
+            <ellipse cx="646.7" cy="94.2" rx="2.3" ry="6.7" transform="rotate(14 646.7 94.2)"></ellipse>
+            <ellipse cx="668.8" cy="107.3" rx="1.6" ry="4.8" transform="rotate(14 668.8 107.3)"></ellipse>
+            <ellipse cx="698.3" cy="83.3" rx="2.9" ry="8.3" transform="rotate(14 698.3 83.3)"></ellipse>
+            <ellipse cx="717.8" cy="100.8" rx="2" ry="5.8" transform="rotate(14 717.8 100.8)"></ellipse>
+            <ellipse cx="745.3" cy="76.8" rx="3.2" ry="9.3" transform="rotate(14 745.3 76.8)"></ellipse>
+            <ellipse cx="764.7" cy="94.2" rx="2.3" ry="6.7" transform="rotate(14 764.7 94.2)"></ellipse>
+            <ellipse cx="784" cy="85.5" rx="2.8" ry="8" transform="rotate(14 784 85.5)"></ellipse>
           </g>
 
-          <path d="M0,140 C46,116 100,109 152,122 C190,132 208,140 220,140 Z" fill="#8CB091"></path>
-          <path d="M794,140 C748,114 694,107 640,120 C604,130 586,140 574,140 Z" fill="#8CB091"></path>
-          <path d="M0,140 C32,126 76,121 118,131 C144,137 154,140 160,140 Z" fill="#5E8368"></path>
-          <path d="M794,140 C764,125 722,120 682,130 C656,137 646,140 640,140 Z" fill="#5E8368"></path>
+          <path d="M0,140 C46,118 100,112 152,124 C190,133 208,140 220,140 Z" fill="#B9A874"></path>
+          <path d="M794,140 C748,116 694,110 640,122 C604,131 586,140 574,140 Z" fill="#B9A874"></path>
+          <path d="M0,140 C32,128 76,124 118,133 C144,138 154,140 160,140 Z" fill="#8C7B46"></path>
+          <path d="M794,140 C764,127 722,123 682,132 C656,138 646,140 640,140 Z" fill="#8C7B46"></path>
 
-          <g fill="#3E5C49">
+          <g fill="#4C4029">
             <g transform="translate(376,113.4) rotate(-9)" opacity=".88">
               <ellipse cx="0" cy="0" rx="8.2" ry="12.7"></ellipse>
               <ellipse cx="0" cy="18" rx="5.1" ry="4.5"></ellipse>
