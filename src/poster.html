@@ -32,7 +32,7 @@
     font-family:'IBM Plex Sans KR','Malgun Gothic',sans-serif;
     padding:20px 16px 40px;
   }
-  .wrap{max-width:794px;margin:0 auto;}
+  .wrap{max-width:794px;margin:0 auto;display:flex;flex-direction:column;gap:22px;}
 
   .stage{width:100%;overflow:hidden;}
   .sheet{
@@ -122,6 +122,46 @@
   }
   .foot b{color:var(--jade);font-weight:600;letter-spacing:.1em;font-size:11px;margin-right:6px;}
 
+  /* ---- 뒷면: 오시는 길 ---- */
+  .title2{
+    font-family:'Noto Serif KR','Nanum Myeongjo','Batang',serif;font-weight:900;
+    font-size:46px;line-height:1.15;margin:18px 0 0;color:var(--ink);letter-spacing:-.02em;
+  }
+
+  .mapwrap{padding:0 77px;margin-top:20px;flex:0 0 auto;}
+  .mapfig{margin:0;}
+  .mapimg{position:relative;line-height:0;border:1px solid var(--rule);}
+  .mapimg img{display:block;width:100%;height:auto;}
+  .mapfig figcaption{
+    margin-top:8px;font-size:12px;line-height:1.5;color:var(--ink-soft);
+    font-weight:300;letter-spacing:-.01em;
+  }
+  .pin{
+    position:absolute;transform:translate(-50%,-50%);
+    width:28px;height:28px;border-radius:50%;
+    background:var(--jade);color:#fff;border:2px solid #fff;
+    box-shadow:0 1px 3px rgba(28,71,51,.45);
+    font-size:14px;font-weight:600;line-height:24px;text-align:center;
+    font-variant-numeric:tabular-nums;
+  }
+  .pin--park{background:var(--ink);}
+
+  .route{padding:0 62px;margin-top:20px;flex:0 0 auto;}
+  .route ol{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:5px;}
+  .route li{
+    position:relative;padding-left:30px;
+    font-size:15px;line-height:24px;color:var(--ink);
+  }
+  .route .n{
+    position:absolute;left:0;top:2px;
+    width:20px;height:20px;border-radius:50%;
+    background:var(--jade);color:#fff;
+    font-size:11px;font-weight:600;line-height:20px;text-align:center;
+  }
+  .route b{font-weight:600;}
+  .route em{font-style:normal;color:var(--ink-soft);font-weight:300;}
+  .route .note{margin:10px 0 0;font-size:13px;color:var(--ink-soft);font-weight:300;}
+
   @media (prefers-reduced-motion:reduce){*{transition:none !important;animation:none !important;}}
 
   /* On a phone the A4 sheet reflows at readable sizes instead of shrinking. */
@@ -160,19 +200,34 @@
 
     .foot{padding:14px 24px;font-size:12px;line-height:1.7;}
     .foot b{font-size:10px;}
+
+    .title2{font-size:32px;margin-top:14px;}
+    .mapwrap{padding:0 16px;margin-top:16px;}
+    .mapfig figcaption{font-size:11px;}
+    .pin{width:22px;height:22px;font-size:11px;line-height:18px;}
+    .route{padding:0 24px;margin-top:16px;}
+    .route li{font-size:14px;line-height:22px;padding-left:26px;}
+    .route .n{width:18px;height:18px;line-height:18px;font-size:10px;top:2px;}
+    .route .note{font-size:12px;}
   }
 
   @page{size:A4 portrait;margin:0;}
   @media print{
     body{background:#fff;padding:0;}
+    .wrap{gap:0;}
     .stage{overflow:visible;height:auto !important;}
-    .sheet{transform:none !important;box-shadow:none;}
+    .sheet{
+      width:794px;height:1123px;
+      transform:none !important;box-shadow:none;
+      break-after:page;page-break-after:always;
+    }
+    .sheet:last-child{break-after:auto;page-break-after:auto;}
   }
 </style>
 
 <div class="wrap">
-  <div class="stage" id="stage">
-    <div class="sheet" id="sheet">
+  <div class="stage">
+    <div class="sheet">
       <div class="topbar"></div>
 
       <header class="head">
@@ -277,29 +332,85 @@
       </footer>
     </div>
   </div>
+
+  <div class="stage">
+    <div class="sheet sheet--back">
+      <div class="topbar"></div>
+
+      <header class="head">
+        <p class="eyebrow">생명을 살리는 걷기명상</p>
+        <h2 class="title2">오시는 길과 걷는 순서</h2>
+        <div class="tick"></div>
+      </header>
+
+      <div class="mapwrap">
+        <figure class="mapfig">
+          <div class="mapimg">
+            <img src="map.jpg" alt="WE호텔 숲 안내도. 호텔 건물 아래쪽에 메가와티가든이 있고, 그 아래 편백나무숲이 있습니다." width="1500" height="1058">
+            <span class="pin" style="left:29%;top:40%;">1</span>
+            <span class="pin pin--park" style="left:49%;top:40%;">P</span>
+            <span class="pin" style="left:26%;top:62%;">2</span>
+            <span class="pin" style="left:33%;top:77%;">3</span>
+          </div>
+          <figcaption>WE호텔 숲 안내도 · 지도 제공 WE호텔</figcaption>
+        </figure>
+      </div>
+
+      <section class="route">
+        <ol>
+          <li><span class="n">1</span><b>접수</b> <em>— WE호텔 입구 또는 메가와티공원 입구에서 이름을 적어 주세요</em></li>
+          <li><span class="n">2</span><b>이완명상과 걷기명상 안내</b> <em>— 메가와티가든에서 시작합니다</em></li>
+          <li><span class="n">3</span><b>걷기명상, 그리고 산과 나무 명상</b> <em>— 메가와티가든에서 편백나무숲까지</em></li>
+          <li><span class="n">4</span><b>돌아와 마무리</b> <em>— 다시 메가와티가든에서 기념촬영과 기념품</em></li>
+        </ol>
+        <p class="note">걷기 편한 신발과 마실 물을 준비하시면 좋습니다.</p>
+      </section>
+
+      <section class="facts">
+        <dl>
+          <div class="row"><dt>일시</dt><dd class="key">2026년 9월 27일 (일) 오전 10시 — 11시</dd></div>
+          <div class="row"><dt>접수처</dt><dd>WE호텔 입구 <small>또는</small> 메가와티공원 입구</dd></div>
+          <div class="row"><dt>주차</dt><dd>호텔 안 주차장 <small>지도의 P 표시</small></dd></div>
+          <div class="row"><dt>문의 · 접수</dt><dd>고경봉 010-2699-3001</dd></div>
+        </dl>
+      </section>
+
+      <footer class="foot">
+        <div><b>주최</b>보건복지부 산하 생명존중희망재단 &nbsp;·&nbsp; <b>주관</b>대한불교조계종 불교상담개발원</div>
+        <div><b>후원</b>대한불교조계종 총무원</div>
+      </footer>
+    </div>
+  </div>
 </div>
 
 <script>
 (function(){
-  var stage = document.getElementById('stage');
-  var sheet = document.getElementById('sheet');
+  var stages = document.querySelectorAll('.stage');
   var W = 794, H = 1123;
 
   var narrow = window.matchMedia('(max-width: 793px)');
 
   function fit(){
-    if (narrow.matches) {            // phone: the sheet reflows, nothing to scale
-      sheet.style.transform = '';
-      stage.style.height = '';
-      return;
+    for (var i = 0; i < stages.length; i++) {
+      var stage = stages[i];
+      var sheet = stage.firstElementChild;
+      if (!sheet) { continue; }
+      if (narrow.matches) {          // phone: the sheets reflow, nothing to scale
+        sheet.style.transform = '';
+        stage.style.height = '';
+        continue;
+      }
+      var k = Math.min(1, stage.clientWidth / W);
+      sheet.style.transform = 'scale(' + k + ')';
+      stage.style.height = (H * k) + 'px';
     }
-    var k = Math.min(1, stage.clientWidth / W);
-    sheet.style.transform = 'scale(' + k + ')';
-    stage.style.height = (H * k) + 'px';
   }
   fit();
   if (narrow.addEventListener) { narrow.addEventListener('change', fit); }
-  if (window.ResizeObserver) { new ResizeObserver(fit).observe(stage); }
+  if (window.ResizeObserver) {
+    var ro = new ResizeObserver(fit);
+    for (var j = 0; j < stages.length; j++) { ro.observe(stages[j]); }
+  }
   window.addEventListener('resize', fit);
 })();
 </script>
