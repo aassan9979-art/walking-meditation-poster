@@ -29,7 +29,7 @@ $g.Clear($paper)
 $g.FillRectangle((New-Object System.Drawing.SolidBrush($leaf)), 0, 0, $W, 10)
 
 # ---- forest band: y 320 .. 530 ----
-$bandTop = 320; $bandBottom = 530
+$bandTop = 320; $bandBottom = 512
 $g.SetClip((New-Object System.Drawing.Rectangle(0, $bandTop, $W, ($bandBottom - $bandTop))))
 
 function Ridge($pts, $color) {
@@ -75,7 +75,7 @@ foreach ($t in $trunks) {
 # mist fading the trunk bases into the paper
 $mistRect = New-Object System.Drawing.Rectangle(0, 455, $W, ($bandBottom - 455))
 $mist = New-Object System.Drawing.Drawing2D.LinearGradientBrush(
-  (New-Object System.Drawing.Point(0, 455)),
+  (New-Object System.Drawing.Point(0, 440)),
   (New-Object System.Drawing.Point(0, $bandBottom)),
   [System.Drawing.Color]::FromArgb(0, $paper.R, $paper.G, $paper.B),
   [System.Drawing.Color]::FromArgb(255, $paper.R, $paper.G, $paper.B))
@@ -84,7 +84,7 @@ $mist.Dispose()
 $g.ResetClip()
 
 # ---- footer band ----
-$g.FillRectangle((New-Object System.Drawing.SolidBrush($ink)), 0, 530, $W, ($H - 530))
+$g.FillRectangle((New-Object System.Drawing.SolidBrush($ink)), 0, 512, $W, ($H - 512))
 
 # ---- type ----
 $serifBlack = "Noto Serif KR Black"
@@ -107,8 +107,9 @@ Text "명상 전문 지도사와 함께하는" $sans 27 $R $inkSoft 70 56
 Text "생명을 살리는" $serifSemi 50 $R $ink 68 98
 Text "걷기 명상" $serifBlack 112 $R $ink 64 164
 
-Text "2026년 9월 27일 (일) 오전 10시 — 11시" $sans 30 $B $paper 70 552
-Text "서귀포시 회수동 WE호텔 · 메가와티공원 · 편백숲 · 참가비 없음" $sans 21 $R (C "#BFD6C3") 70 594
+Text "2026년 9월 27일 (일) 오전 9시 ~ 오후 2시" $sans 29 $B $paper 70 530
+Text "9시 · 10시 · 11시 · 12시 · 1시 매시 정각 출발 (한 시간)" $sans 20 $R (C "#BFD6C3") 70 568
+Text "서귀포시 회수동 WE호텔 · 참가비 없음" $sans 18 $R (C "#9DBFA4") 70 592
 
 $out = Join-Path (Split-Path -Parent $PSScriptRoot) "og.png"
 $bmp.Save($out, [System.Drawing.Imaging.ImageFormat]::Png)

@@ -11,7 +11,7 @@ $root = Split-Path -Parent $PSScriptRoot
 $src  = Join-Path $root "src\poster.html"
 $out  = Join-Path $root "index.html"
 $base = "https://aassan9979-art.github.io/walking-meditation-poster/"
-$desc = "2026년 9월 27일(일) 오전 10시 — 11시 · 서귀포시 회수동 WE호텔 메가와티공원·편백숲 · 참가비 없음 · 문의 고경봉 010-2699-3001"
+$desc = "2026년 9월 27일(일) 오전 9시 · 10시 · 11시 · 낮 12시 · 오후 1시 출발 (한 시간) · 서귀포시 회수동 WE호텔 · 참가비 없음"
 
 $raw = Get-Content $src -Raw -Encoding UTF8
 $i = $raw.IndexOf('<div class="wrap">')
@@ -38,7 +38,7 @@ $doc = @"
 <meta property="og:image:type" content="image/png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="생명을 살리는 걷기 명상 안내 — 2026년 9월 27일 서귀포 회수동 WE호텔">
+<meta property="og:image:alt" content="생명을 살리는 걷기 명상 안내 — 2026년 9월 27일 서귀포 회수동 WE호텔, 오전 9시부터 오후 1시까지 매시 정각 출발">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="생명을 살리는 걷기명상">
 <meta name="twitter:description" content="$desc">
