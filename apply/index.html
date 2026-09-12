@@ -221,7 +221,8 @@
 
     <div id="only-if-attending" hidden>
       <div class="q">
-        <label class="label" for="count">2. 몇 명이 참석할 예정인가요?</label>
+        <label class="label" for="count">2. 몇 명이 참석할 예정인가요?<span class="req">*</span></label>
+        <p class="hint">본인을 포함한 인원입니다.</p>
         <input type="number" id="count" name="count" min="1" max="99" inputmode="numeric" placeholder="예: 4">
       </div>
 
@@ -295,10 +296,19 @@
       fail("참석 여부를 골라 주세요.");
       return;
     }
-    if (yes.checked && !phone.value.trim()) {
-      fail("연락처를 적어 주세요. 안내를 드리는 데 필요합니다.");
-      phone.focus();
-      return;
+    var countField = document.getElementById("count");
+    if (yes.checked) {
+      var n = parseInt(countField.value, 10);
+      if (!(n >= 1)) {
+        fail("몇 분이 오시는지 적어 주세요. 본인만 오시면 1을 적으시면 됩니다.");
+        countField.focus();
+        return;
+      }
+      if (!phone.value.trim()) {
+        fail("연락처를 적어 주세요. 안내를 드리는 데 필요합니다.");
+        phone.focus();
+        return;
+      }
     }
 
     var data = {
