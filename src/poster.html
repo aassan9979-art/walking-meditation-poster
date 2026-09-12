@@ -1,0 +1,305 @@
+<title>생명을 살리는 걷기명상</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Noto+Serif+KR:wght@700;900&family=IBM+Plex+Sans+KR:wght@300;400;500;600&display=swap">
+<style>
+  :root{
+    --shell-bg:#DDE8D8;
+    --shell-fg:#3A5244;
+    --paper:#F2F7EE;
+    --paper-lift:#FAFCF8;
+    --ink:#1C4733;
+    --ink-soft:#4E6E58;
+    --jade:#2F7A4B;
+    --leaf:#57A86B;
+    --rule:#C9DAC7;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --shell-bg:#16211A;
+      --shell-fg:#A7BCAD;
+    }
+  }
+  :root[data-theme="dark"]{
+    --shell-bg:#16211A;
+    --shell-fg:#A7BCAD;
+  }
+
+  body{
+    margin:0;
+    background:var(--shell-bg);
+    color:var(--shell-fg);
+    font-family:'IBM Plex Sans KR','Malgun Gothic',sans-serif;
+    padding:20px 16px 40px;
+  }
+  .wrap{max-width:794px;margin:0 auto;}
+
+  .stage{width:100%;overflow:hidden;}
+  .sheet{
+    width:794px;height:1123px;transform-origin:top left;
+    background:var(--paper);color:var(--ink);
+    display:flex;flex-direction:column;
+    box-shadow:0 1px 3px rgba(28,71,51,.14),0 18px 40px rgba(28,71,51,.12);
+  }
+
+  .topbar{height:8px;background:var(--leaf);flex:0 0 auto;}
+
+  .head{padding:32px 62px 0;flex:0 0 auto;}
+  .eyebrow{
+    font-size:13px;font-weight:600;letter-spacing:.2em;color:var(--jade);margin:0;
+  }
+  .kicker{
+    font-size:25px;font-weight:300;color:var(--ink-soft);
+    margin:22px 0 0;letter-spacing:-.01em;
+  }
+  h1{
+    font-family:'Noto Serif KR','Nanum Myeongjo','Batang',serif;font-weight:900;
+    margin:6px 0 0;color:var(--ink);letter-spacing:-.02em;
+  }
+  h1 .l1{display:block;font-size:54px;line-height:1.18;font-weight:700;}
+  h1 .l2{display:block;font-size:128px;line-height:1.06;}
+  .tick{width:64px;height:4px;background:var(--leaf);margin-top:14px;}
+
+  .forest{flex:1 1 auto;min-height:110px;}
+  .forest svg{display:block;width:100%;height:100%;}
+
+  .lede{padding:0 62px;margin:20px 0 0;flex:0 0 auto;}
+  .lede p{margin:0;}
+  .lede .big{
+    font-family:'Gowun Batang','Batang',serif;
+    font-size:22px;line-height:1.65;color:var(--ink);
+  }
+  .lede .small{
+    font-size:16px;line-height:1.6;color:var(--ink-soft);margin-top:10px;font-weight:300;
+  }
+  .lede .invite{
+    font-family:'Gowun Batang','Batang',serif;font-weight:700;
+    font-size:19px;line-height:1.5;color:var(--jade);margin-top:10px;letter-spacing:-.01em;
+  }
+
+  .walk{padding:0 62px;margin-top:24px;flex:0 0 auto;}
+  .walk ol{
+    list-style:none;margin:0;padding:0 0 0 20px;
+    display:flex;flex-direction:column;gap:6px;
+    border-left:1px solid var(--rule);
+  }
+  .walk li{
+    position:relative;font-size:16px;line-height:28px;color:var(--ink);font-weight:400;
+  }
+  .walk li::before{
+    content:"";position:absolute;left:-25px;top:10px;
+    width:9px;height:9px;border-radius:50%;
+    background:var(--paper);border:2px solid var(--jade);
+  }
+  .walk li b{font-weight:600;}
+  .walk li span{color:var(--ink-soft);font-weight:300;}
+  .walk .note{
+    margin:12px 0 0;font-size:14px;color:var(--ink-soft);font-weight:300;letter-spacing:-.01em;
+  }
+
+  .facts{padding:0 62px;margin-top:22px;flex:0 0 auto;}
+  .facts dl{margin:0;border-top:1px solid var(--ink);}
+  .facts .row{
+    display:grid;grid-template-columns:92px 1fr;align-items:baseline;gap:0 16px;
+    padding:11px 0;border-bottom:1px solid var(--rule);
+  }
+  .facts dt{
+    font-size:12px;font-weight:600;letter-spacing:.18em;color:var(--jade);
+  }
+  .facts dd{
+    margin:0;font-size:19px;line-height:1.4;color:var(--ink);
+    font-variant-numeric:tabular-nums;letter-spacing:-.01em;
+  }
+  .facts dd.key{font-size:22px;font-weight:600;}
+  .facts dd em{font-style:normal;color:var(--jade);font-weight:600;}
+  .facts dd small{font-size:15px;font-weight:300;color:var(--ink-soft);}
+
+  .foot{
+    margin-top:auto;flex:0 0 auto;
+    background:var(--ink);color:var(--paper-lift);
+    padding:16px 62px;
+    font-size:13px;line-height:1.75;font-weight:300;
+  }
+  .foot b{color:var(--jade);font-weight:600;letter-spacing:.1em;font-size:11px;margin-right:6px;}
+
+  @media (prefers-reduced-motion:reduce){*{transition:none !important;animation:none !important;}}
+
+  /* On a phone the A4 sheet reflows at readable sizes instead of shrinking. */
+  @media screen and (max-width:793px){
+    body{padding:12px 12px 28px;}
+    .stage{overflow:visible;height:auto !important;}
+    .sheet{width:100%;height:auto;transform:none !important;}
+
+    .topbar{height:6px;}
+    .head{padding:24px 24px 0;}
+    .eyebrow{font-size:12px;letter-spacing:.16em;}
+    .kicker{font-size:17px;margin-top:16px;}
+    h1 .l1{font-size:30px;}
+    h1 .l2{font-size:64px;}
+    .tick{width:48px;height:3px;margin-top:12px;}
+
+    .forest{height:132px;flex:0 0 auto;min-height:0;}
+
+    .lede{padding:0 24px;margin-top:16px;}
+    .lede .big{font-size:17px;line-height:1.6;}
+    .lede .small{font-size:14px;margin-top:8px;}
+    .lede .invite{font-size:15px;margin-top:8px;}
+
+    .walk{padding:0 24px;margin-top:18px;}
+    .walk ol{padding-left:16px;gap:5px;}
+    .walk li{font-size:14px;line-height:22px;}
+    .walk li::before{left:-21px;top:7px;width:8px;height:8px;border-width:2px;}
+    .walk .note{font-size:12px;margin-top:10px;}
+
+    .facts{padding:0 24px;margin-top:18px;}
+    .facts .row{display:block;padding:9px 0;}
+    .facts dt{font-size:11px;letter-spacing:.14em;margin-bottom:2px;}
+    .facts dd{font-size:16px;}
+    .facts dd.key{font-size:18px;}
+    .facts dd small{font-size:13px;display:block;margin-top:2px;}
+
+    .foot{padding:14px 24px;font-size:12px;line-height:1.7;}
+    .foot b{font-size:10px;}
+  }
+
+  @page{size:A4 portrait;margin:0;}
+  @media print{
+    body{background:#fff;padding:0;}
+    .stage{overflow:visible;height:auto !important;}
+    .sheet{transform:none !important;box-shadow:none;}
+  }
+</style>
+
+<div class="wrap">
+  <div class="stage" id="stage">
+    <div class="sheet" id="sheet">
+      <div class="topbar"></div>
+
+      <header class="head">
+        <p class="eyebrow">자살예방 · 생명존중 걷기명상</p>
+        <p class="kicker">명상 전문 지도사와 함께하는</p>
+        <h1><span class="l1">생명을 살리는</span><span class="l2">걷기 명상</span></h1>
+        <div class="tick"></div>
+      </header>
+
+      <div class="forest">
+        <svg viewBox="0 0 794 130" preserveAspectRatio="xMidYMax slice" role="img" aria-label="산 능선 앞으로 편백나무 줄기가 늘어선 숲">
+          <defs>
+            <linearGradient id="mist" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#F2F7EE" stop-opacity="0"></stop>
+              <stop offset="0.5" stop-color="#F2F7EE" stop-opacity="0.5"></stop>
+              <stop offset="1" stop-color="#F2F7EE" stop-opacity="1"></stop>
+            </linearGradient>
+          </defs>
+          <path d="M0,58 L90,38 L150,52 L240,26 L330,50 L420,34 L520,56 L610,30 L700,50 L794,40 L794,130 L0,130 Z" fill="#D3E3D2"></path>
+          <path d="M0,76 L120,60 L210,74 L300,56 L400,76 L500,62 L600,80 L700,64 L794,78 L794,130 L0,130 Z" fill="#B2CDB4"></path>
+          <g stroke-linecap="square">
+            <line x1="14" y1="12" x2="14" y2="130" stroke="#2E6340" stroke-width="3" opacity=".9"></line>
+            <line x1="27" y1="34" x2="27" y2="130" stroke="#5A8A64" stroke-width="1.5" opacity=".6"></line>
+            <line x1="41" y1="4" x2="41" y2="130" stroke="#2E6340" stroke-width="5" opacity="1"></line>
+            <line x1="58" y1="26" x2="58" y2="130" stroke="#5A8A64" stroke-width="2" opacity=".7"></line>
+            <line x1="68" y1="44" x2="68" y2="130" stroke="#96B79C" stroke-width="1" opacity=".8"></line>
+            <line x1="84" y1="10" x2="84" y2="130" stroke="#2E6340" stroke-width="4" opacity=".95"></line>
+            <line x1="99" y1="30" x2="99" y2="130" stroke="#5A8A64" stroke-width="2.5" opacity=".65"></line>
+            <line x1="112" y1="20" x2="112" y2="130" stroke="#96B79C" stroke-width="1.5" opacity=".9"></line>
+            <line x1="126" y1="2" x2="126" y2="130" stroke="#2E6340" stroke-width="6" opacity="1"></line>
+            <line x1="147" y1="38" x2="147" y2="130" stroke="#5A8A64" stroke-width="2" opacity=".6"></line>
+            <line x1="158" y1="14" x2="158" y2="130" stroke="#2E6340" stroke-width="3.5" opacity=".85"></line>
+            <line x1="175" y1="48" x2="175" y2="130" stroke="#96B79C" stroke-width="1" opacity=".75"></line>
+            <line x1="186" y1="24" x2="186" y2="130" stroke="#5A8A64" stroke-width="2.5" opacity=".7"></line>
+            <line x1="203" y1="6" x2="203" y2="130" stroke="#2E6340" stroke-width="4.5" opacity="1"></line>
+            <line x1="221" y1="42" x2="221" y2="130" stroke="#96B79C" stroke-width="1.5" opacity=".8"></line>
+            <line x1="232" y1="18" x2="232" y2="130" stroke="#5A8A64" stroke-width="3" opacity=".75"></line>
+            <line x1="251" y1="34" x2="251" y2="130" stroke="#5A8A64" stroke-width="2" opacity=".6"></line>
+            <line x1="265" y1="2" x2="265" y2="130" stroke="#2E6340" stroke-width="5" opacity="1"></line>
+            <line x1="286" y1="46" x2="286" y2="130" stroke="#96B79C" stroke-width="1.5" opacity=".7"></line>
+            <line x1="297" y1="22" x2="297" y2="130" stroke="#5A8A64" stroke-width="2.5" opacity=".7"></line>
+            <line x1="318" y1="52" x2="318" y2="108" stroke="#96B79C" stroke-width="1.5" opacity=".55"></line>
+            <line x1="336" y1="58" x2="336" y2="106" stroke="#96B79C" stroke-width="1" opacity=".45"></line>
+            <line x1="357" y1="50" x2="357" y2="109" stroke="#96B79C" stroke-width="2" opacity=".6"></line>
+            <line x1="378" y1="62" x2="378" y2="105" stroke="#96B79C" stroke-width="1" opacity=".4"></line>
+            <line x1="399" y1="54" x2="399" y2="107" stroke="#96B79C" stroke-width="1.5" opacity=".5"></line>
+            <line x1="420" y1="60" x2="420" y2="106" stroke="#96B79C" stroke-width="1" opacity=".45"></line>
+            <line x1="441" y1="51" x2="441" y2="109" stroke="#96B79C" stroke-width="2" opacity=".6"></line>
+            <line x1="462" y1="16" x2="462" y2="130" stroke="#5A8A64" stroke-width="3" opacity=".8"></line>
+            <line x1="478" y1="40" x2="478" y2="130" stroke="#96B79C" stroke-width="1.5" opacity=".8"></line>
+            <line x1="492" y1="4" x2="492" y2="130" stroke="#2E6340" stroke-width="5" opacity="1"></line>
+            <line x1="513" y1="32" x2="513" y2="130" stroke="#5A8A64" stroke-width="2" opacity=".65"></line>
+            <line x1="527" y1="12" x2="527" y2="130" stroke="#2E6340" stroke-width="3.5" opacity=".85"></line>
+            <line x1="546" y1="46" x2="546" y2="130" stroke="#96B79C" stroke-width="1" opacity=".7"></line>
+            <line x1="558" y1="24" x2="558" y2="130" stroke="#5A8A64" stroke-width="2.5" opacity=".7"></line>
+            <line x1="577" y1="6" x2="577" y2="130" stroke="#2E6340" stroke-width="4.5" opacity="1"></line>
+            <line x1="596" y1="42" x2="596" y2="130" stroke="#96B79C" stroke-width="1.5" opacity=".8"></line>
+            <line x1="608" y1="18" x2="608" y2="130" stroke="#5A8A64" stroke-width="3" opacity=".75"></line>
+            <line x1="628" y1="36" x2="628" y2="130" stroke="#5A8A64" stroke-width="2" opacity=".6"></line>
+            <line x1="643" y1="0" x2="643" y2="130" stroke="#2E6340" stroke-width="5.5" opacity="1"></line>
+            <line x1="666" y1="50" x2="666" y2="130" stroke="#96B79C" stroke-width="1.5" opacity=".7"></line>
+            <line x1="678" y1="22" x2="678" y2="130" stroke="#5A8A64" stroke-width="2.5" opacity=".7"></line>
+            <line x1="697" y1="8" x2="697" y2="130" stroke="#2E6340" stroke-width="4" opacity=".95"></line>
+            <line x1="715" y1="38" x2="715" y2="130" stroke="#96B79C" stroke-width="1.5" opacity=".8"></line>
+            <line x1="729" y1="14" x2="729" y2="130" stroke="#2E6340" stroke-width="3" opacity=".85"></line>
+            <line x1="748" y1="28" x2="748" y2="130" stroke="#5A8A64" stroke-width="2" opacity=".65"></line>
+            <line x1="762" y1="4" x2="762" y2="130" stroke="#2E6340" stroke-width="5" opacity="1"></line>
+            <line x1="781" y1="20" x2="781" y2="130" stroke="#5A8A64" stroke-width="2.5" opacity=".7"></line>
+          </g>
+          <rect x="0" y="72" width="794" height="58" fill="url(#mist)"></rect>
+        </svg>
+      </div>
+
+      <div class="lede">
+        <p class="big">숲길을 천천히 걷는 한 시간,<br>나를 살리고 이웃을 살리는 시간입니다.</p>
+        <p class="small">명상이 처음이셔도 괜찮습니다. 그저 오셔서 걸으시면 됩니다.</p>
+        <p class="invite">오실 때 주변 세 분과 함께 오시면 더욱 좋습니다.</p>
+      </div>
+
+      <section class="walk">
+        <ol>
+          <li><b>이완명상</b> <span>— 몸풀기 요가와 걷기명상 안내 · 메가와티공원</span></li>
+          <li><b>걷기명상</b> <span>— 메가와티공원에서 편백숲까지</span></li>
+          <li><b>산과 나무 명상</b> <span>— 편백숲</span></li>
+          <li><b>마무리</b> <span>— 기념촬영 · 기념품 · 간식 · 메가와티공원</span></li>
+        </ol>
+        <p class="note">접수 — WE호텔 입구 또는 메가와티공원 입구 · 전체 한 시간</p>
+      </section>
+
+      <section class="facts">
+        <dl>
+          <div class="row"><dt>일시</dt><dd class="key">2026년 9월 27일 (일) 오전 10시 — 11시</dd></div>
+          <div class="row"><dt>장소</dt><dd>서귀포시 회수동 WE호텔 <small>메가와티공원 · 편백숲</small></dd></div>
+          <div class="row"><dt>참가비</dt><dd><em>없음</em> <small>기념품과 사은품을 드립니다</small></dd></div>
+          <div class="row"><dt>문의 · 접수</dt><dd>고경봉 010-2699-3001</dd></div>
+        </dl>
+      </section>
+
+      <footer class="foot">
+        <div><b>주최</b>보건복지부 산하 생명존중희망재단 &nbsp;·&nbsp; <b>주관</b>대한불교조계종 불교상담개발원</div>
+        <div><b>후원</b>대한불교조계종 총무원</div>
+      </footer>
+    </div>
+  </div>
+</div>
+
+<script>
+(function(){
+  var stage = document.getElementById('stage');
+  var sheet = document.getElementById('sheet');
+  var W = 794, H = 1123;
+
+  var narrow = window.matchMedia('(max-width: 793px)');
+
+  function fit(){
+    if (narrow.matches) {            // phone: the sheet reflows, nothing to scale
+      sheet.style.transform = '';
+      stage.style.height = '';
+      return;
+    }
+    var k = Math.min(1, stage.clientWidth / W);
+    sheet.style.transform = 'scale(' + k + ')';
+    stage.style.height = (H * k) + 'px';
+  }
+  fit();
+  if (narrow.addEventListener) { narrow.addEventListener('change', fit); }
+  if (window.ResizeObserver) { new ResizeObserver(fit).observe(stage); }
+  window.addEventListener('resize', fit);
+})();
+</script>
