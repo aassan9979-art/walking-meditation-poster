@@ -55,6 +55,7 @@
     font-family:'IBM Plex Sans KR','Malgun Gothic',sans-serif;
     padding:20px 16px 40px;
     -webkit-text-size-adjust:100%;
+    word-break:keep-all;overflow-wrap:break-word;
   }
   .wrap{max-width:794px;margin:0 auto;display:flex;flex-direction:column;gap:22px;}
 
@@ -113,6 +114,8 @@
     display:block;margin-top:5px;
     font-size:15px;font-weight:300;color:var(--ink-soft);letter-spacing:-.01em;
   }
+  /* 시각 사이의 가운뎃점. 아래 안내문 span 과 같은 옷을 입지 않도록. */
+  .times .sep{display:inline;margin:0;font-size:inherit;font-weight:inherit;color:inherit;}
 
   .flow{
     padding:0 62px;margin:18px 0 0;flex:0 0 auto;
@@ -267,6 +270,16 @@
     .facts dd.key{font-size:18px;}
     .title2{font-size:27px;}
     .mapwrap{padding:0 10px;}
+  }
+
+  /* 휴대폰에서만 살아나는 줄바꿈. 넓은 화면에서는 없는 셈이 된다. */
+  .br-mo{display:none;}
+
+  @media screen and (max-width:480px){
+    .br-mo{display:inline;}
+    .times .sep{display:none;}
+    .route li em{display:block;margin-top:2px;}
+    .facts dd small.mid{display:inline;margin-top:0;}
   }
 
   @page{size:A4 portrait;margin:0;}
@@ -430,13 +443,13 @@
       </div>
 
       <div class="lede">
-        <p class="big">숲길을 천천히 걷는 한 시간,<br>나를 살리고 이웃을 살리는 시간입니다.</p>
+        <p class="big">숲길을 천천히 걷는 한 시간,<br>나를 살리고 이웃을 살리는 <br class="br-mo">시간입니다.</p>
         <p class="small">명상이 처음이셔도 괜찮습니다.<br>그저 오셔서 걸으시면 됩니다.</p>
-        <p class="invite">오실 때 주변 세 분과 함께 오시면 더욱 좋습니다.</p>
+        <p class="invite">오실 때 주변 세 분과 함께 오시면 <br class="br-mo">더욱 좋습니다.</p>
       </div>
 
       <p class="times">
-        <b>출발</b>오전 9시 · 10시 · 11시 · 낮 12시 · 오후 1시
+        <b>출발</b>오전 9시 · 10시 · 11시<span class="sep"> · </span><br class="br-mo">낮 12시 · 오후 1시
         <span>다섯 번 · 한 번에 한 시간 · 편한 시간에 오세요</span>
       </p>
 
@@ -489,12 +502,12 @@
           <li><span class="n">3</span><b>걷기명상, 그리고 산과 나무 명상</b> <em>— 메가와티가든에서 편백나무숲까지</em></li>
           <li><span class="n">4</span><b>돌아와 마무리</b> <em>— 다시 메가와티가든에서 기념촬영과 기념품</em></li>
         </ol>
-        <p class="note">오전 9시 · 10시 · 11시 · 낮 12시 · 오후 1시,<br>매시 정각에 출발합니다.<br>걷기 편한 신발과 마실 물을 준비하시면 좋습니다.</p>
+        <p class="note">오전 9시 · 10시 · 11시 · 낮 12시 · 오후 1시,<br>매시 정각에 출발합니다.<br>걷기 편한 신발과 마실 물을 <br class="br-mo">준비하시면 좋습니다.</p>
       </section>
 
       <section class="facts">
         <dl>
-          <div class="row"><dt>접수처</dt><dd>WE호텔 입구 <small>또는</small> 메가와티공원 입구 <small>— 지도의 1</small></dd></div>
+          <div class="row"><dt>접수처</dt><dd>WE호텔 입구 <small class="mid">또는</small> 메가와티공원 입구 <small>— 지도의 1</small></dd></div>
           <div class="row"><dt>주차</dt><dd>호텔 안 주차장 <small>— 지도의 P</small></dd></div>
         </dl>
       </section>
