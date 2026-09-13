@@ -54,6 +54,7 @@
     color:var(--shell-fg);
     font-family:'IBM Plex Sans KR','Malgun Gothic',sans-serif;
     padding:20px 16px 40px;
+    -webkit-text-size-adjust:100%;
   }
   .wrap{max-width:794px;margin:0 auto;display:flex;flex-direction:column;gap:22px;}
 
@@ -132,6 +133,7 @@
     font-variant-numeric:tabular-nums;letter-spacing:-.01em;
   }
   .facts dd.key{font-size:23px;font-weight:600;}
+  .facts dd a{color:inherit;text-decoration:none;}
   .facts dd em{font-style:normal;color:var(--jade);font-weight:600;}
   .facts dd small{font-size:16px;font-weight:300;color:var(--ink-soft);}
 
@@ -201,7 +203,8 @@
 
   /* On a phone the A4 sheet reflows at readable sizes instead of shrinking. */
   @media screen and (max-width:793px){
-    body{padding:12px 12px 28px;}
+    body{padding:12px 12px 28px;padding-left:max(12px,env(safe-area-inset-left));padding-right:max(12px,env(safe-area-inset-right));padding-bottom:max(28px,env(safe-area-inset-bottom));}
+    .wrap{gap:16px;}
     .stage{overflow:visible;height:auto !important;}
     .sheet{width:100%;height:auto;transform:none !important;}
 
@@ -245,6 +248,25 @@
     .route li{font-size:14px;line-height:22px;padding-left:26px;}
     .route .n{width:18px;height:18px;line-height:18px;font-size:10px;top:2px;}
     .route .note{font-size:13px;line-height:1.6;}
+
+    .apply a{display:block;width:100%;box-sizing:border-box;padding:18px 20px;font-size:17px;}
+  }
+
+  /* 작은 휴대폰: 제목이 가장자리에 닿지 않도록 한 단계 더 줄인다. */
+  @media screen and (max-width:400px){
+    body{padding-top:8px;}
+    .head{padding:20px 18px 0;}
+    .kicker{font-size:15px;margin-top:12px;}
+    h1 .l1{font-size:25px;}
+    h1 .l2{font-size:52px;}
+    .lede,.times,.flow,.facts,.route{padding-left:18px;padding-right:18px;}
+    .foot{padding-left:18px;padding-right:18px;}
+    .lede .big{font-size:17px;}
+    .times{font-size:16px;}
+    .facts dd{font-size:16px;}
+    .facts dd.key{font-size:18px;}
+    .title2{font-size:27px;}
+    .mapwrap{padding:0 10px;}
   }
 
   @page{size:A4 portrait;margin:0;}
@@ -425,7 +447,7 @@
           <div class="row"><dt>날짜</dt><dd class="key">2026년 9월 27일 (일) <small>오전 9시 ~ 오후 2시</small></dd></div>
           <div class="row"><dt>장소</dt><dd>서귀포시 회수동 WE호텔 <small>메가와티공원 · 편백숲</small></dd></div>
           <div class="row"><dt>참가비</dt><dd><em>없음</em> <small>기념품과 사은품을 드립니다</small></dd></div>
-          <div class="row"><dt>문의 · 접수</dt><dd>고경봉 010-2699-3001<br>최혜광 010-2575-8810</dd></div>
+          <div class="row"><dt>문의 · 접수</dt><dd><a href="tel:010-2699-3001">고경봉 010-2699-3001</a><br><a href="tel:010-2575-8810">최혜광 010-2575-8810</a></dd></div>
         </dl>
       </section>
 
