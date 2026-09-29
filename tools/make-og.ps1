@@ -175,7 +175,7 @@ Text "나를 즐겁게 하는" $serifSemi 50 $R $ink 68 98
 Text "걷기 명상" $serifBlack 112 $R $ink 64 164
 
 Text "2026년 10월 25일 (일) 오전 10시 · 11시 출발" $sans 29 $B $paper 70 530
-Text "두 번 중 편한 시간에 오세요 · 한 번에 한 시간" $sans 20 $R (C "#D9D3B4") 70 568
+Text "두 번 중 편한 시간에 오세요" $sans 20 $R (C "#D9D3B4") 70 568
 Text "제주 절물자연휴양림 · 삼나무 숲길" $sans 18 $R (C "#B9B28E") 70 592
 
 $out = Join-Path (Split-Path -Parent $PSScriptRoot) "og.png"
