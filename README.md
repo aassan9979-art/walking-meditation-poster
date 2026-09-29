@@ -81,6 +81,9 @@ git add -A ; git commit -m "무엇을 고쳤는지" ; git push
 행사 전에 시험 기록을 지우려면 `data/applications.csv` 를 머리글 한 줄만 남기고 비웁니다.
 맨 앞 BOM 을 지우면 Excel 에서 한글이 깨지니 그대로 두세요.
 
+지난 행사 명단은 `data/archive/` 에 보관합니다 — 9/27 서귀포 행사 명단은
+`data/archive/2026-09-27_서귀포_applications.csv` (9/29 시험 신청 1건 포함).
+
 ## 디자인 메모
 
 가을 색입니다. `src/poster.html` 위쪽 `:root` 에 모여 있습니다.
