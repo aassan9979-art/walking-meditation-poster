@@ -170,13 +170,13 @@ function Text($s, $family, $size, $style, $color, $x, $y) {
 $R = [System.Drawing.FontStyle]::Regular
 $B = [System.Drawing.FontStyle]::Bold
 
-Text "명상 전문 지도사와 함께하는" $sans 27 $R $inkSoft 70 56
-Text "생명을 살리는" $serifSemi 50 $R $ink 68 98
+Text "절물 숲길에서 천천히 걸어요" $sans 27 $R $inkSoft 70 56
+Text "나를 즐겁게 하는" $serifSemi 50 $R $ink 68 98
 Text "걷기 명상" $serifBlack 112 $R $ink 64 164
 
-Text "2026년 9월 27일 (일) 오전 9시 ~ 오후 2시" $sans 29 $B $paper 70 530
-Text "9시 · 10시 · 11시 · 12시 · 1시 매시 정각 출발 (한 시간)" $sans 20 $R (C "#D9D3B4") 70 568
-Text "서귀포시 회수동 WE호텔 · 참가비 없음" $sans 18 $R (C "#B9B28E") 70 592
+Text "2026년 10월 25일 (일) 오전 10시 · 11시 출발" $sans 29 $B $paper 70 530
+Text "두 번 중 편한 시간에 오세요 · 한 번에 한 시간" $sans 20 $R (C "#D9D3B4") 70 568
+Text "제주 절물자연휴양림 · 삼나무 숲길" $sans 18 $R (C "#B9B28E") 70 592
 
 $out = Join-Path (Split-Path -Parent $PSScriptRoot) "og.png"
 $bmp.Save($out, [System.Drawing.Imaging.ImageFormat]::Png)
