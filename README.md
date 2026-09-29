@@ -66,7 +66,7 @@ git add -A ; git commit -m "무엇을 고쳤는지" ; git push
 - Worker 주소 : `https://walking-meditation-apply.aassan9979-194.workers.dev`
 - 설정값은 Cloudflare 대시보드에 있습니다 — `GITHUB_TOKEN`(비밀), `LIST_KEY`(비밀),
   `GITHUB_REPO`, `FILE_PATH`, `ALLOW_ORIGIN`
-- **GitHub 토큰은 2026-09-27 만료(이미 지남).** 절물 행사 접수를 받으려면 새로 만들어 `GITHUB_TOKEN` 만 교체
+- **GitHub 토큰은 2026-11-30 만료** (2026-09-29 교체). 그 뒤에도 접수하려면 새로 만들어 `GITHUB_TOKEN` 만 교체
 - 구글시트는 `A1` 의 `=IMPORTDATA(J2&J3)` 로 읽고, Apps Script 가 1분마다 `J3` 숫자를 바꿔
   새로 읽게 합니다. 즉시 갱신은 시트 메뉴 `명단` → `지금 새로고침`
 - 시트 `H1` 참석 인원 합계 `=SUM(C2:C)`, `H2` 신청 건수 `=COUNTA(A2:A)`

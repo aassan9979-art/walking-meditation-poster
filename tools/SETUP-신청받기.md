@@ -24,7 +24,7 @@ Worker 가 비공개 저장소에 글을 쓰려면 열쇠가 필요합니다.
 1. https://github.com/settings/personal-access-tokens/new 로 갑니다
    (로그인된 상태여야 합니다)
 2. **Token name** — `걷기명상 신청받기`
-3. **Expiration** — `Custom` 으로 **2026년 10월 31일** 쯤 (행사 뒤까지)
+3. **Expiration** — `Custom` 으로 **2026년 11월 30일** 쯤 (행사 뒤까지)
 4. **Repository access** — `Only select repositories` 를 고르고
    **`walking-meditation-applications`** 하나만 선택
 5. **Permissions** → `Repository permissions` → **Contents** 를 **Read and write** 로
